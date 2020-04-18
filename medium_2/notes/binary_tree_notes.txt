@@ -1,0 +1,61 @@
+# binary_tree_notes.txt
+
+Understanding
+  - Searching with non-consecutive numbers not efficient with an array if
+    we intend to add values
+  - If a value is added to an array that would otherwise be between indexes
+    0 and -1, the entire array would have to be sorted
+  - Keeping track of gaps between numbers would allow us to insert a new
+    value
+    + Still not ideal
+    + The LS explanation mentions having to shift values, but I would think
+      removing the placeholder (`nil`) would not require shifting...
+  - Binarey Search Tree
+    + A subsequent value added is based on the top-down traversing of the
+      tree
+    + Value added v. value at traversal
+    + Greater than or less than: BINARY
+  - Task
+    + Create `Bst` class that implements a Binary Search Tree
+  - Input
+    + The initial data point is the top of the BST
+      > Integer
+      > Instance variables for 'right' and 'left' ('greater' or 'less than')
+    + Subsequent values `Bst#insert` are stored relative to the initial
+      value
+      > These themselves are also 'Binary Search Trees'
+      > Inserting a value equal to the current data value places it to the
+        left
+
+Data Structure
+  - `Bst` class
+    + `left` getter/setter
+    + 'right' ^ (accessor)
+    + `data` instance variable stores the integer value of the top level
+      > When invoked, it returns the integer value
+    + `each` method traverses the binary tree
+      > Must return an enumerator if not given a block
+      > This probably indicates that it 'piggy-backs' off of the
+        `Enumerable#each` method.
+    + `insert` method places the input (Integer) in the appropriate `left`
+      `right` instance variable
+
+Implementation
+  - `Bst#initialize`
+    + Store the given value in `@data` (reader)
+  - `Bst#insert`
+    + Insantiate a new `Bst` instance with the new value
+    + Determine if greater or less than the `data` value
+      > If the given instance variable for `right` or `left` is not set,
+        set the new `Bst` object as its value
+      > Else call the current values `insert`
+  - `Bst#each`
+    + Each called on a node (`Bst` object)
+      > Iteration
+      > Any item to my left?
+        = If yes
+          - If it in already_iterated array
+            + I iterate
+          - Else
+            + push self to on_hold array
+

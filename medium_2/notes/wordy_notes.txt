@@ -1,0 +1,57 @@
+# wordy_notes.txt
+
+Understanding:
+
+- WordProblem class
+  > Stores the word problem
+  > Data Structure
+    + Array?
+    + Remove words 'what', 'is', 'by'?
+    + Remove punctuation
+  > `#answer` method
+    + Returns an integer
+    + Processes the word problem
+  > `#valid_problem?`
+    + Non-computational or words
+    + Word to int not an integer
+- Input
+  > Word problem
+  > String
+  > First two words (indexes 0 and 1) spurrious
+  > Third word (index 2 if split) is an integer
+  > 4th word (index 3) is an action
+    + plus, minus, divided_by, multiplied_by
+  > 5/6th word (indexes 4/5) integer
+  > Integer values can be positive or negative
+  > Indexes after first calculation follow the pattern of
+    action then integer
+- Task
+  > Can use send to create an elegant solution
+  > Process steps moving forward through the string
+- Output
+  > Integer
+
+- Approach
+  > Remove punctiation and spurrious words when initializing
+    + Store in an array
+    + Convert computational words to symbols
+  > `#valid_word_problem?`
+    + If the array is empty, there is no word problem. INVALID
+  > `#answer`
+    + Divide word problem array into two arrays
+      = Computations
+      = Integers
+    + Iterate
+      = Break if array.fetch(1, 'Out of integers') == 'out of
+        integers'
+      = Remove the first two elements of integers array
+      = Perform operation on given arguments
+      = Add The result of the operation as first element of the
+        array
+      = Increment counter
+    + Alternative iteration
+      = Iterate over the computations
+      = Remove the first two elemnst of the integers array
+      = Perform the computation on the given integers
+      = Mutate the ints array
+    + Return array element

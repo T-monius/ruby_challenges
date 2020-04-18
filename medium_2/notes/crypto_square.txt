@@ -1,0 +1,43 @@
+# crypto_square.txt
+
+Understanding
+  - Square code = method for composing secret messages
+  - Input
+    + English text
+  - Task
+    + Normalize text
+      > remove spaces and punctuation
+      > downcase
+    + Characters
+      > Break into rows
+        = 8 characters
+      > Print with intervening newlines
+    + Rectangle
+      > Rows aligned to form columns
+      > Matching row indexes stored as a 'column' sequentially
+    + Square sizing
+      > Per Message length
+      > Perfect square?
+        = (4, 9, 16, 25, 36)
+        = Square root is a whole number
+      > Not perfect square
+        = Smallest square larger than the number of characters
+          in the message
+        = Square root plus a character
+  - Output
+    + Encoded English text
+    + Array of string elements
+
+  - Test suite decodes also
+
+Approach
+  - Have all functionality but some exceptions
+    + The basic rule for row length is that if it's a perfect
+      square then use the row lentgth equivalent to the square
+      root of the length
+    + Not a perfect square
+      = Use square root plus one if that resulting block is
+        greater in number of rows than the number of characters in each segment
+      = Use square root plus two if adding one resulted in a
+        square that had more characters in each segment than
+        characters in rows

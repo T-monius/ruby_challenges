@@ -1,0 +1,55 @@
+# robot_name_notes.txt
+
+Understanding
+  - Context: Robot Factory
+    + Settings (state?)
+      > Set
+      > Reset
+    + Factory floor
+    + name
+      > Initially random
+      > Name wiped on reset/ re-randomized
+        = No repeating of name
+        = Track previous names
+  - Test Suite
+    + `Robot` class
+    + `Robot#initialize`
+      > Set name (probably `@name` to a random name)
+    + Name = 2 capital alphas, 3 digits
+    + `Robot#name`
+      > Getter for the name
+    + The seeding of `Kernel#srand` and what not should just
+      test that the numbers that I randomize are in fact random. They should not reflect additional functionality to which I have to conform my program.
+    + `Kernel#reset`
+      > Store old name in list of historic names
+      > Reset the name of the robot
+
+Input (Robot class)
+  - Robot initialized without an input
+  - Random number behind the scenes can technically be input
+Task
+  - Give the robot a random name
+  - Reset the name if nececessary
+    + Cannot repeat names
+Output
+  - A getter for the name should return the current name
+
+Approach
+  - Private attr_accessor for name
+  - `#reset`
+    + Sample a capital letter from an array of capps (2x)
+      > Push to return string
+    + Get a random int, convert to string (3x)
+      > push to return string
+    + Return string
+  - Set the name in initialize method
+
+Debug
+  - Same initial name problem
+    + The difference between a set and a reset is that a name
+      should already exist when reset is called
+    + When set is called, there should be no name
+      > If no name exists, then the name chose should be
+        pushed to the historic names log
+    + When the name is reset, the new name should be pushed to
+      the log once validated

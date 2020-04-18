@@ -1,0 +1,42 @@
+# run_length_encoding.txt
+
+Understanding
+  - RLE
+    + data compression
+    + Replace runs of data elements with one and count
+    + Count placed before the data element
+  - Input
+    + String
+  - Task
+    + Parse the string by characters
+    + Count the portions taken of each character
+  - Output
+    + String
+    + Count of each character followed by the character
+  - `#encode` and `#decode`
+
+  - `#decode`
+    + Input
+    + Count of how many of the following character to print
+      > Can use Regex to parse
+      > Any number of digit characters followed by a single
+        unicode character
+
+Implementation
+  - `#encode`
+  - Iterate over the input string
+    + Take the characters from the front of the string while
+      they are equal to the first character in the string
+      > Do this destructively
+      > Push to an array of the consecutive elements
+    + Iterate the array of consecutive elements
+      > Get a count
+      > Store the count of the inner array as lead of string
+      > As suffix of string, the character
+      > Push to a return string
+    + Return the encoded string
+  - `#decode`
+    + Iterate the array of the count/char combinations
+      > Push the char count times to the return string
+      > Return the string
+ 

@@ -1,0 +1,24 @@
+# pascals_triangle_notes.txt
+
+Understanding:
+  - A given number is calculated by the numbers to the right
+    and left of it from the previous row
+  - calculate a row
+    + Take the previous row
+    + Find all of the combinations of 2 elements in sequence
+    + 1 is the first element
+    + Following elements are the sum of combinations
+    + Last element is one
+  - Test Suite
+    + `Triangle` class
+      > Constructor, integer input
+      > `#rows`
+        = Array output
+        = Number of nested arrays matches the integer of
+          constructor
+
+Approach:
+  - Store the row_count as an instance variable
+  - `#rows`
+    + Return [[1]] if rows is 1
+    + 
